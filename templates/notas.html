@@ -1,0 +1,15 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <main>
+        <form action="{{ url_for('salvar_notas') }}" method="post">
+            <label for="name">
+                Name: <input type="text" id="name" name="user_name">
+            </label>
+            <label for="nota">
+                Nota: <input type="text" id="nota" name="user_nota">
+            </label>
+            <button type="submit"> Salvar </button>
+        </form>
+        
+    </main>
+{% endblock %}

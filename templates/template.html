@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <title>Diário de classe</title>
+</head>
+<body>
+    <header>
+        <nav class="header-content container">
+            <h2 class="header-name">{{titulo_header}}</h2>
+            <div class="header-links">
+                <a href="/" class="links">Início</a>
+                <a href="#" class="links">Cadastro</a>
+                <a href="login" class="links">Login</a>
+                <a href="logout" class="links">Logout</a>
+            </div>
+        </nav>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block conteudo %} {% endblock %}
+    
+    <footer class="footer">
+        <p>Copyright 2024 | <strong>Jorge França</strong> - todos os direitos reservados</p>
+    </footer>    
+    <!-- <img src="../static/img/logo.jpeg" alt="logo do projeto"> -->
+</body>
+</html>

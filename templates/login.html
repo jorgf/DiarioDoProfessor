@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<form action="{{ url_for('auth') }}" method="post">
+    <input type="hidden" name="next" value="{{next or '/'}}">
+    <label for="name">
+        Name: <input type="text" id="name" name="user_name">
+    </label>
+    <label for="password">
+        Senha: <input type="password" id="password" name="password">
+    </label>
+    <button type="submit"> Login </button>
+</form>
+{% endblock %}

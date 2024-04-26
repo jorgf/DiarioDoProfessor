@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <main>
+        <div class="container">
+            <img src="../static/img/banner.jpg" alt="imagem com oculos, caneta e bloco de anotações">
+        </div>
+        <div class="main-info">
+            <h1 id="titulo-main">Bem-vindo(a) ao <strong>Diário de classe</strong></h1>
+            <p>O Objetivo dessa plataforma é facilitar sua vida profissional.
+                Com alguns cliques vocês poderá colocar a presença dos alunos,
+                notas de avaliações, e cronograma de aula, com horários e conteúdos. 
+                Além disso, poderá compartilhar com os alunos e alunas informações importantes.
+                
+                O que pode ser feito aqui:
+            </p>
+            {% for atv in atividades %}
+            <ul>
+                <li> {{atv}} </li>
+            </ul>
+            {% endfor %}
+            
+          
+            <div class="main-button">
+                <button>Cadastrar</button>
+                <button>Login</button>    
+            </div>
+        </div>
+    </main>
+{% endblock %}
