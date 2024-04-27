@@ -1,10 +1,17 @@
 from flask import render_template, request, redirect, session, flash, url_for
 from app import app
+from users import User
+from alunos import Aluno
 
 @app.route('/')
 def index():
     lista_atv = ['Cronograma de aulas', 'Lançamento de notas', 'Relatórios']
     return render_template('index.html', titulo_header='Diário de Classe', atividades=lista_atv)
+
+@app.route('/listar-usuarios')
+def list_all():
+    users = Aluno.query.order_by(Aluno.id)
+    return render_template('listarUsers.html', titulo_header='DC', users=users)
 
 @app.route('/login')
 def login():
