@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <div class="lista-usuarios">
+        <h3> Usuários cadastrados </h3>
+        <br>
+        
+        </p>
+        {% for user in users %}
+        <ul>
+            <li> {{user}} </li>
+        </ul>
+        {% endfor %}
+    </div>
+{% endblock %}
