@@ -1,2 +1,6 @@
 #O USUARIO FINAL NAO DEVE TER ACESSO AS CONFIG DO SISTEMA
 SECRET_KEY = 'projeto_estudo'
+
+#DB
+SQLALCHEMY_DATABASE_URI = 'postgresql://root:root@localhost:5432/db_diario_prof'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
