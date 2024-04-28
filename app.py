@@ -8,8 +8,8 @@ app.config.from_pyfile('config.py')
 
 #db
 db.init_app(app)
-from users import User
-from alunos import Aluno
+from models.users import User
+from models.alunos import Aluno
 migrate = Migrate(app, db)
 
 #rotas
