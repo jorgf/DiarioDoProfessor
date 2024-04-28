@@ -18,13 +18,13 @@ def list_all():
 @app.route('/create-user', methods=['GET','POST'])
 def create_user():
     if request.method == 'POST':
-        
         name = request.form['name']
-        role = request.form['role']
+        role = request.form['select']
         user_exist = User.get_by_username(name)
 
         if user_exist:
-            flash('Usuario já cadastrado!', 'flash-error')
+
+            flash(f'Usuario {name} já cadastrado!', 'flash-error')
             return redirect(url_for('index'))
         
         user = User(name=request.form['name'],created_at=date.today(),role=role)
