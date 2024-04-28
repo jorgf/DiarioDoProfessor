@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <main class="home">
+        <div class="container">
+            <img src="../static/img/banner.jpg" alt="imagem com oculos, caneta e bloco de anotações">
+        </div>
+        <div class="main-info">
+            <h1 id="titulo-main">Ambiente de trabalho do <strong>Diário de classe</strong></h1>
+            <p> Aqui você pode:</p>
+            <ul>
+                <li><a href="/listar-estudantes" class="links">Listar Estudantes</a></li>
+                <li><a href="#" class="links">Listar Disciplinas</a></li>
+                <li><a href="/lancar-notas" class="links">Lançar notas</a></li>
+                <li><a href="#" class="links">Definir cronograma de aulas</a></li>
+            </ul>
+            
+        </div>
+    </main>
+{% endblock %}
