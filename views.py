@@ -10,9 +10,18 @@ def index():
     lista_atv = ['Cronograma de aulas', 'Lançamento de notas', 'Relatórios']
     return render_template('index.html', titulo_header='Diário de Classe', atividades=lista_atv)
 
+@app.route('/home')
+def home():
+    return render_template('home.html', titulo_header='Ambiente de trabalho')
+
 @app.route('/listar-usuarios')
 def list_all():
     users = User.query.order_by(User.id)
+    return render_template('listarUsers.html', titulo_header='DC', users=users)
+
+@app.route('/listar-estudantes')
+def listar_estudantes():
+    users = User.query.order_by(User.id).filter_by(role='estudante')
     return render_template('listarUsers.html', titulo_header='DC', users=users)
 
 @app.route('/create-user', methods=['GET','POST'])
@@ -36,7 +45,8 @@ def create_user():
 
 @app.route('/login')
 def login():
-    next = request.args.get('next')
+    # next = request.args.get('next')
+    next='home'
     return render_template('login.html', titulo_header='Login', next=next)
 
 @app.route('/auth', methods=['POST'])
