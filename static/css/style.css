@@ -28,7 +28,10 @@ body {
     gap:20px;
     margin-right: 20px;
 }
-
+.home {
+    background-color: #85847e;
+    border-radius: 8px;
+}
 .links {
     color: #353130;
     text-decoration: none;
@@ -141,7 +144,7 @@ button:hover {
     display: flex;
     margin-top: 20px;
 }
-#name ,#password{
+#name ,#password, #nota{
     padding: 5px;
 }
 .btn-form {
