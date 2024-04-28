@@ -14,3 +14,4 @@ e execute o arquivo app.py
 [] rota para deletar usuario
 [] rota para atualizar usuario
 [] Reorganizar o banco de dados
+[] página lançar-notas deve trazer todos os estudantes em ordem alfabetica com espaco para definir a nota
