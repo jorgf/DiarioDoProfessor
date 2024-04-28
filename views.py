@@ -1,7 +1,9 @@
 from flask import render_template, request, redirect, session, flash, url_for
 from app import app
+from datetime import date
 from models.users import User
 from models.alunos import Aluno
+from database import db
 
 @app.route('/')
 def index():
@@ -10,8 +12,27 @@ def index():
 
 @app.route('/listar-usuarios')
 def list_all():
-    users = Aluno.query.order_by(Aluno.id)
+    users = User.query.order_by(User.id)
     return render_template('listarUsers.html', titulo_header='DC', users=users)
+
+@app.route('/create-user', methods=['GET','POST'])
+def create_user():
+    if request.method == 'POST':
+        
+        name = request.form['name']
+        role = request.form['role']
+        user_exist = User.get_by_username(name)
+
+        if user_exist:
+            flash('Usuario já cadastrado!', 'flash-error')
+            return redirect(url_for('index'))
+        
+        user = User(name=request.form['name'],created_at=date.today(),role=role)
+        db.session.add(user)
+        db.session.commit()
+        flash('Usuário cadastrado com sucesso', 'flash-success')
+        return redirect(url_for('index'))
+    return render_template('createUsers.html', titulo_header='DC')
 
 @app.route('/login')
 def login():
@@ -24,7 +45,7 @@ def auth():
     if '1234' == request.form['password']:
         session['user_login'] = request.form['user_name']
         next_page = request.form['next']
-        flash('Usuário logado com sucesso!', 'flash-sucess')
+        flash('Usuário logado com sucesso!', 'flash-success')
         return redirect(next_page)
     else:
         flash('Usuario e/ou senha incorreto(s)!', 'flash-error')
