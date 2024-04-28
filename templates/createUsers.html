@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<div class = 'main-create-user'>
+    <form action="/create-user" method="post">
+        Nome completo:<input type="text" name="name">
+        Senha: <input type="password" name="password">
+        Tipo: <input type="tipo" name="role">
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</div>
+{% endblock %}
